@@ -1,0 +1,18 @@
+.result {
+
+}
+
+.cont {
+  display: inline-block;
+}
+
+body {
+  text-align: center;
+}
+
+#container {
+  margin: 20px;
+  width: 400px;
+  height: 8px;
+  position: relative;
+}
