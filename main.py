@@ -42,7 +42,7 @@ def process(file_name, name=None, title=None, emojis='😀'):
         img.crop(v).save(p + '/' + str(k) + '.png')
     #
     if name == None:
-        name = randomString(10) + '_by_' + bot_username
+        name = 's' + file_name + '_by_' + bot_username
     if title == None:
         title = 'Tg Cancer Pack Creator'
     ##
