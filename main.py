@@ -1,4 +1,6 @@
 import os
+import random
+import string
 import time
 import logging
 import shutil
@@ -27,7 +29,11 @@ for n in ['/tmp/input', '/tmp/sliced']:
     if not os.path.exists(n):
         os.makedirs(n)
 
-
+def randomString(stringLength=10):
+    """Generate a random string of fixed length """
+    letters = string.ascii_lowercase
+    return ''.join(random.choice(letters) for i in range(stringLength))
+        
 def process(file_name, name=None, title=None, emojis='😀'):
     img = Image.open('/tmp/input/' + file_name + '.jpg').resize((2560,2560), Image.ANTIALIAS).convert('RGB')
     p = '/tmp/sliced/' + file_name
@@ -36,7 +42,7 @@ def process(file_name, name=None, title=None, emojis='😀'):
         img.crop(v).save(p + '/' + str(k) + '.png')
     #
     if name == None:
-        name = 's' + file_name + '_by_' + bot_username
+        name = randomString(10) + '_by_' + bot_username
     if title == None:
         title = 'Tg Cancer Pack Creator'
     ##
