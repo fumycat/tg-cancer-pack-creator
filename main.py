@@ -20,7 +20,7 @@ telebot.logger.setLevel(logging.DEBUG)
 
 bot = telebot.TeleBot(os.environ.get("TG"))
 owner = os.environ.get("OWNER")
-bot_username = 'lolicoinbot'
+bot_username = 'my_tg_cancer_bot'
 url = urlparse(os.environ.get('REDISCLOUD_URL'))
 redi = redis.Redis(host=url.hostname, port=url.port, password=url.password)
 
