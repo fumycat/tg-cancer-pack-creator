@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import io
-import os
+import io, os
+import sys, traceback
 
 import logging
 import asyncio
@@ -40,7 +40,11 @@ async def process(photo, chat_id, user_id, title, emoji):
         t = io.BytesIO()
         img.crop(v).save(t, format="PNG")
         t.seek(0)
-        await bot.add_sticker_to_set(user_id=user_id, name=pack_name, png_sticker=t, emojis=emoji)
+        try:
+            await bot.add_sticker_to_set(user_id=user_id, name=pack_name, png_sticker=t, emojis=emoji)
+        except Exception:
+            traceback.print_exc(file=sys.stdout)
+            exit(137)
         logging.info("Uploaded " + str(k))
     return "t.me/addstickers/" + pack_name
 
