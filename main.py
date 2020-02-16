@@ -17,7 +17,7 @@ from tools import box
 from words import NameGen
 
 API_TOKEN = os.getenv("API_TOKEN")
-WEBAPP_HOST = os.getenv("https://tg-cancer-pack-creator.herokuapp.com/")
+WEBAPP_HOST = os.getenv("HEROKU_URL")
 WEBAPP_PORT = os.getenv("PORT")
 generator = NameGen(4, True, "")
 
@@ -72,7 +72,7 @@ async def send_welcome(message: types.Message):
     await message.reply("Hi!\nОтправь картинку и я сделаю из неё набор стикеров!\nМожно добавить описание к картинке, чтобы определить название набора.\nЕсли в описание добавить смайлик, он будет соответствовать каждому стикеру из набора.\nЕсли отправить несколько картинок, то я создам столько наборов, сколько было картинок, но названия у них будут стандартные.\n\nАвтор: @fumyk\nhttps://github.com/fumycat/tg-cancer-pack-creator")
 
 async def on_startup(dp):
-    await bot.set_webhook(WEBHOOK_URL)
+    await bot.set_webhook(WEBAPP_HOST)
 
 async def on_shutdown(dp):
     logging.warning('Shutting down..')
