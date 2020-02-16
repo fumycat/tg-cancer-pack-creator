@@ -91,6 +91,6 @@ if __name__ == '__main__':
         on_startup=on_startup,
         on_shutdown=on_shutdown,
         skip_updates=True,
-        host=WEBAPP_HOST,
+        host="0.0.0.0",
         port=WEBAPP_PORT,
     )
