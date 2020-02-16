@@ -11,7 +11,7 @@ from aiogram import Bot, Dispatcher, executor, types
 
 from tools import box
 
-API_TOKEN = 'BOT TOKEN HERE'
+API_TOKEN = os.getenv("API_TOKEN")
 
 logging.basicConfig(level=logging.INFO)
 
