@@ -18,8 +18,9 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
+BOT_USER = bot.get_me()
 
-for n in ['/tmp/input', '/tmp/sliced']:
+for n in ['tmp/input', 'tmp/sliced']:
     if not os.path.exists(n):
         os.makedirs(n)
 
@@ -48,9 +49,13 @@ def process(file_name, name=None, title=None, emojis='😀'):
     os.remove('/tmp/input/' + file_name + '.jpg')
     shutil.rmtree('/tmp/sliced/' + file_name)
 
-@dp.message_handler()
-async def echo(message: types.Message):
-    await message.answer(message.text)
+#@dp.message_handler(content_types=ContentType.PHOTO)
+#async def photo_handler(message: types.Message):
+#    await 
+
+@dp.message_handler(commands=['start', 'help'])
+async def send_welcome(message: types.Message):
+    await message.reply("Hi!\nI'm EchoBot!\nPowered by aiogram.")
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)

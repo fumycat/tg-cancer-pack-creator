@@ -1,8 +1,4 @@
 .idea/
 __pycache__/
 *.pyc
-
-input/
-sliced/
-
-node_modules
+tmp/
