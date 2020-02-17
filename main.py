@@ -77,12 +77,12 @@ async def on_startup(dp):
 async def on_shutdown(dp):
     logging.warning('Shutting down..')
 
-    await bot.delete_webhook()
+    #await bot.delete_webhook()
 
-    await dp.storage.close()
-    await dp.storage.wait_closed()
+    #await dp.storage.close()
+    #await dp.storage.wait_closed()
 
-    logging.warning('Bye!')
+    #logging.warning('Bye!')
 
 if __name__ == '__main__':
     start_webhook(
