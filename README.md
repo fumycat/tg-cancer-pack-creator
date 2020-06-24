@@ -12,4 +12,4 @@ heroku config:set HEROKU_URL=Heroku application url
 showcase
 --------
 
-![show](https://i.imgur.com/GDtSj67.png)
+![show](https://i.imgur.com/0qR9bBo.jpg)
